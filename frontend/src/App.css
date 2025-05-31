@@ -1,19 +1,146 @@
-.App {
- text-align: center;
- padding: 2rem;
- font-family: sans-serif;
-}
-
-
 .pitch {
- width: 600px;
- height: 400px;
- background: linear-gradient(to bottom, #6ab150 90%, #ffffff 10%);
- border: 2px solid #222;
- margin: 2rem auto;
- position: relative;
- cursor: crosshair;
+  position: relative;
+  width: 1200px;
+  height: 800px;
+  background: #0b6623;
+  margin: 20px auto;
+  border: 2px solid white;
 }
 
+.halfway-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: white;
+}
 
+.center-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin-left: -100px;
+  margin-top: -100px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
 
+.goal {
+  position: absolute;
+  width: 8px;
+  height: 80px;
+  background: white;
+  top: 360px; /* Centered: (800 - 80) / 2 */
+}
+
+.left-goal {
+  left: 0;
+}
+
+.right-goal {
+  right: 0;
+}
+
+.box {
+  position: absolute;
+  border: 2px solid white;
+}
+
+/* 6-yard box: 60px deep, 200px wide */
+.six-yard-box.left {
+  left: 0;
+  top: 300px;
+  width: 60px;
+  height: 200px;
+}
+
+.six-yard-box.right {
+  right: 0;
+  top: 300px;
+  width: 60px;
+  height: 200px;
+}
+
+/* 18-yard box: 180px deep, 440px wide */
+.eighteen-yard-box.left {
+  left: 0;
+  top: 180px;
+  width: 180px;
+  height: 440px;
+}
+
+.eighteen-yard-box.right {
+  right: 0;
+  top: 180px;
+  width: 180px;
+  height: 440px;
+}
+
+.player {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  user-select: none;
+}
+
+.defender {
+  background-color: blue;
+}
+
+.sidebar {
+  position: absolute;
+  left: -150px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.draggable-template {
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  border-radius: 50%;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  user-select: none;
+  border: 2px dashed white;
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.player.goalkeeper {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: orange;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold;
+}
