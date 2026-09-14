@@ -16,6 +16,20 @@ An interactive tool for building intuition about Expected Goals (xG) in soccer.
 - **Model**: XGBoost on 84k shots with freeze-frame features. On 15k held-out shots it scores
   log loss 0.2635 / AUROC 0.809 against StatsBomb's own xG at 0.2658 / 0.804.
 
+## Example: a real goal, replicated
+
+Jude Bellingham's 94th-minute overhead kick for England against Slovakia (Euro 2024, round of 16):
+
+![Broadcast frame of Bellingham's overhead kick against Slovakia](docs/bellingham-slovakia-broadcast.png)
+
+The same moment loaded from the shot library. Every Slovakia defender, the keeper and the England
+teammates stand where StatsBomb's freeze frame recorded them, the shooter is posed for a
+right-footed overhead kick, and the overlays show why it was a low-probability chance: 43.7° of
+goal to aim at, 54% of the goal mouth unshadowed, and the ball struck from a horizontal body.
+StatsBomb rated it 10%; our model says 18%.
+
+![The app's reconstruction of the Bellingham goal with the xG overlays](docs/bellingham-slovakia-xg.png)
+
 ## Run it
 
 ```bash
