@@ -1,0 +1,15 @@
+{
+  "shooter": {"x": 108, "y": 40},
+  "goalkeeper": {"x": 118, "y": 40},
+  "defenders": [{"x": 114, "y": 39}, {"x": 115, "y": 43}],
+  "teammates": [],
+  "body_part": "Right Foot",
+  "technique": "Normal",
+  "shot_type": "Open Play",
+  "play_pattern": "Regular Play",
+  "first_time": false,
+  "under_pressure": false,
+  "one_on_one": false,
+  "open_goal": false,
+  "preferred_foot": "Right"
+}
