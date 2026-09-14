@@ -1,0 +1,9 @@
+.char-label {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgb(0 0 0 / 0.55);
+  color: #fff;
+  font: 600 12px/1.4 var(--font);
+  white-space: nowrap;
+}

@@ -1,0 +1,17 @@
+:root {
+  color-scheme: dark;
+  --bg: #0f1216;
+  --panel: #171b21;
+  --panel-2: #1f242c;
+  --border: #2a313b;
+  --text: #e8ecf1;
+  --text-dim: #98a2b3;
+  --accent: #f5b400;
+  --accent-text: #1a1300;
+  --red: #ef4444;
+  --green: #22c55e;
+  --blue: #3b82f6;
+  --radius: 8px;
+  --font: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, 'SF Mono', Menlo, monospace;
+}

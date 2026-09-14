@@ -1,0 +1,123 @@
+.minimap {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px;
+  background: color-mix(in srgb, var(--panel) 88%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(6px);
+  user-select: none;
+}
+
+.minimap svg {
+  display: block;
+  height: 260px;
+  width: auto;
+  touch-action: none;
+  border-radius: 4px;
+  overflow: visible;
+}
+
+.minimap-bg {
+  fill: #1d5c31;
+}
+
+.minimap-lines rect,
+.minimap-lines line,
+.minimap-lines circle,
+.minimap-lines path {
+  fill: none;
+  stroke: rgb(255 255 255 / 0.85);
+  stroke-width: 0.35;
+}
+
+.minimap-lines .spot {
+  fill: rgb(255 255 255 / 0.85);
+  stroke: none;
+}
+
+.minimap-cone {
+  fill: rgb(245 180 0 / 0.18);
+  stroke: rgb(245 180 0 / 0.6);
+  stroke-width: 0.2;
+}
+
+.token {
+  cursor: grab;
+}
+
+.token:active {
+  cursor: grabbing;
+}
+
+.token-body {
+  stroke: rgb(255 255 255 / 0.9);
+  stroke-width: 0.25;
+}
+
+.token.in-cone .token-body {
+  stroke: var(--red);
+  stroke-width: 0.4;
+}
+
+.token-ring {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 0.25;
+  stroke-dasharray: 0.6 0.4;
+}
+
+.token-label {
+  font-size: 1.5px;
+  font-weight: 700;
+  fill: #0b0e12;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.token-teammate .token-label,
+.token-defender .token-label {
+  fill: #0b0e12;
+}
+
+.token-defender .token-label {
+  fill: #fff;
+}
+
+.token-remove {
+  cursor: pointer;
+}
+
+.token-remove circle {
+  fill: var(--red);
+  stroke: #fff;
+  stroke-width: 0.2;
+}
+
+.token-remove text {
+  font-size: 1.6px;
+  font-weight: 700;
+  fill: #fff;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.minimap-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-self: stretch;
+}
+
+.minimap-toolbar button {
+  white-space: nowrap;
+  text-align: left;
+}
+
+.minimap-toolbar .spacer {
+  flex: 1;
+}

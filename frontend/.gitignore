@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
@@ -7,9 +5,16 @@
 
 # testing
 /coverage
+/playwright-report
+/test-results
 
 # production
 /build
+/dist
+
+# local-only assets (see tools/assets/README.md)
+public/models/*.glb
+tools/assets/raw/
 
 # misc
 .DS_Store
