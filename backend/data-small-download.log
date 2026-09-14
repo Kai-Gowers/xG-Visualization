@@ -1,0 +1,176 @@
+2026-09-13 19:31:33,014 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/competitions.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:33,017 INFO xg.pipeline.download: 3 competition-seasons selected
+2026-09-13 19:31:33,507 INFO httpx: HTTP Request: GET https://api.github.com/repos/statsbomb/open-data/commits/master "HTTP/1.1 301 Moved Permanently"
+2026-09-13 19:31:33,821 INFO httpx: HTTP Request: GET https://api.github.com/repositories/136174015/commits/master "HTTP/1.1 200 OK"
+2026-09-13 19:31:33,963 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/matches/43/106.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:34,187 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/matches/55/282.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:34,191 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/matches/55/43.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:34,195 INFO xg.pipeline.download: 166 event files to fetch (0 cached)
+events:   0%|          | 0/166 [00:00<?, ?match/s]2026-09-13 19:31:34,446 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857276.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:34,454 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857271.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:34,477 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857255.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:34,688 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857277.json "HTTP/1.1 200 OK"
+events:   1%|          | 1/166 [00:00<01:27,  1.89match/s]2026-09-13 19:31:34,751 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857273.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:34,754 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857274.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:34,754 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857278.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:34,755 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857272.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:35,004 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857275.json "HTTP/1.1 200 OK"
+events:   2%|▏         | 4/166 [00:00<00:29,  5.57match/s]2026-09-13 19:31:35,068 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857290.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:35,114 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857296.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:35,138 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857298.json "HTTP/1.1 200 OK"
+events:   5%|▌         | 9/166 [00:00<00:12, 13.03match/s]2026-09-13 19:31:35,246 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857261.json "HTTP/1.1 200 OK"
+events:   7%|▋         | 12/166 [00:01<00:10, 14.31match/s]2026-09-13 19:31:35,397 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857282.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:35,399 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857297.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:35,403 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857294.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:35,404 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857284.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:35,427 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857266.json "HTTP/1.1 200 OK"
+events:   9%|▉         | 15/166 [00:01<00:09, 16.07match/s]2026-09-13 19:31:35,567 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857285.json "HTTP/1.1 200 OK"
+events:  11%|█▏        | 19/166 [00:01<00:07, 20.04match/s]2026-09-13 19:31:35,612 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857265.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:35,617 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857301.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:35,682 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857254.json "HTTP/1.1 200 OK"
+events:  13%|█▎        | 22/166 [00:01<00:06, 21.52match/s]2026-09-13 19:31:35,716 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857268.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:35,716 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3869321.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:35,717 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857269.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:35,802 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857295.json "HTTP/1.1 200 OK"
+events:  15%|█▌        | 25/166 [00:01<00:06, 22.44match/s]2026-09-13 19:31:35,921 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857256.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:35,952 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3869151.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:35,953 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857257.json "HTTP/1.1 200 OK"
+events:  17%|█▋        | 28/166 [00:01<00:06, 20.73match/s]2026-09-13 19:31:36,028 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857258.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:36,091 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3869684.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:36,092 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857292.json "HTTP/1.1 200 OK"
+events:  19%|█▊        | 31/166 [00:01<00:06, 21.56match/s]2026-09-13 19:31:36,208 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3869486.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:36,250 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3869685.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:36,283 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857260.json "HTTP/1.1 200 OK"
+events:  20%|██        | 34/166 [00:02<00:06, 19.74match/s]2026-09-13 19:31:36,315 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857288.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:36,336 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857267.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:36,338 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857289.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:36,442 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3869118.json "HTTP/1.1 200 OK"
+events:  23%|██▎       | 39/166 [00:02<00:05, 23.59match/s]2026-09-13 19:31:36,478 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857287.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:36,634 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3869552.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:36,654 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857264.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:36,655 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3869354.json "HTTP/1.1 200 OK"
+events:  25%|██▌       | 42/166 [00:02<00:06, 19.10match/s]2026-09-13 19:31:36,748 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3869420.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:36,772 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3869220.json "HTTP/1.1 200 OK"
+events:  27%|██▋       | 45/166 [00:02<00:06, 19.52match/s]2026-09-13 19:31:36,867 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3869152.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:36,877 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3869519.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:36,974 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857263.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:37,026 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3869254.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:37,027 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3869117.json "HTTP/1.1 200 OK"
+events:  29%|██▉       | 48/166 [00:02<00:06, 18.01match/s]2026-09-13 19:31:37,097 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857259.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:37,098 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857283.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:37,099 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3869219.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:37,125 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3869253.json "HTTP/1.1 200 OK"
+events:  32%|███▏      | 53/166 [00:02<00:04, 23.24match/s]2026-09-13 19:31:37,254 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857300.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:37,326 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857299.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:37,329 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857293.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:37,339 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857270.json "HTTP/1.1 200 OK"
+events:  34%|███▎      | 56/166 [00:03<00:05, 19.46match/s]2026-09-13 19:31:37,426 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857281.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:37,427 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857280.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:37,449 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857262.json "HTTP/1.1 200 OK"
+events:  37%|███▋      | 61/166 [00:03<00:04, 24.73match/s]2026-09-13 19:31:37,598 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857286.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:37,612 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857291.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:37,713 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3857279.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:37,739 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930170.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:37,746 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930163.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:37,746 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930178.json "HTTP/1.1 200 OK"
+events:  39%|███▊      | 64/166 [00:03<00:05, 18.73match/s]2026-09-13 19:31:37,916 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3938643.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:37,935 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3938641.json "HTTP/1.1 200 OK"
+events:  40%|████      | 67/166 [00:03<00:06, 16.19match/s]2026-09-13 19:31:38,053 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930159.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:38,055 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930181.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:38,056 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3938642.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:38,105 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3938639.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:38,149 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930160.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:38,149 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930166.json "HTTP/1.1 200 OK"
+events:  43%|████▎     | 72/166 [00:03<00:04, 21.03match/s]2026-09-13 19:31:38,415 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3938638.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:38,423 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3938637.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:38,463 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3941019.json "HTTP/1.1 200 OK"
+events:  46%|████▌     | 76/166 [00:04<00:05, 17.64match/s]2026-09-13 19:31:38,485 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930174.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:38,485 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930169.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:38,636 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3938640.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:38,642 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3938644.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:38,680 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3942227.json "HTTP/1.1 200 OK"
+events:  49%|████▉     | 81/166 [00:04<00:04, 18.64match/s]2026-09-13 19:31:38,751 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930162.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:38,783 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930176.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:38,804 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3942752.json "HTTP/1.1 200 OK"
+events:  51%|█████     | 85/166 [00:04<00:03, 21.97match/s]2026-09-13 19:31:38,827 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3942382.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:39,064 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3942819.json "HTTP/1.1 200 OK"
+events:  53%|█████▎    | 88/166 [00:04<00:04, 17.98match/s]2026-09-13 19:31:39,092 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3938645.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:39,166 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3942349.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:39,341 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930171.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:39,349 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3941020.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:39,373 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3941018.json "HTTP/1.1 200 OK"
+events:  55%|█████▍    | 91/166 [00:05<00:05, 14.37match/s]2026-09-13 19:31:39,426 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3941022.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:39,481 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3942226.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:39,504 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3941021.json "HTTP/1.1 200 OK"
+events:  57%|█████▋    | 95/166 [00:05<00:04, 17.26match/s]2026-09-13 19:31:39,588 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3941017.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:39,705 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930179.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:39,743 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930182.json "HTTP/1.1 200 OK"
+events:  59%|█████▉    | 98/166 [00:05<00:04, 16.04match/s]2026-09-13 19:31:39,786 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3940878.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:40,113 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930167.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:40,118 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930165.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:40,121 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3943043.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:40,121 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930173.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:40,122 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930168.json "HTTP/1.1 200 OK"
+events:  61%|██████    | 101/166 [00:05<00:05, 12.78match/s]2026-09-13 19:31:40,152 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930177.json "HTTP/1.1 200 OK"
+events:  64%|██████▍   | 106/166 [00:06<00:03, 17.72match/s]2026-09-13 19:31:40,261 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930180.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:40,283 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3940983.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:40,312 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930184.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:40,350 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930172.json "HTTP/1.1 200 OK"
+events:  66%|██████▌   | 109/166 [00:06<00:02, 19.41match/s]2026-09-13 19:31:40,438 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930164.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:40,493 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930158.json "HTTP/1.1 200 OK"
+events:  67%|██████▋   | 112/166 [00:06<00:02, 18.62match/s]2026-09-13 19:31:40,551 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930175.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:40,637 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788758.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:40,665 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788761.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:40,710 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788760.json "HTTP/1.1 200 OK"
+events:  69%|██████▉   | 115/166 [00:06<00:03, 16.74match/s]2026-09-13 19:31:40,800 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3794687.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:40,831 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930161.json "HTTP/1.1 200 OK"
+events:  71%|███████   | 118/166 [00:06<00:02, 18.44match/s]2026-09-13 19:31:40,899 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788773.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:40,907 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3930183.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:40,981 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788765.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:40,982 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3794685.json "HTTP/1.1 200 OK"
+events:  73%|███████▎  | 121/166 [00:06<00:02, 20.41match/s]2026-09-13 19:31:41,163 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3794690.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:41,172 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3795108.json "HTTP/1.1 200 OK"
+events:  75%|███████▍  | 124/166 [00:07<00:02, 17.38match/s]2026-09-13 19:31:41,242 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3795187.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:41,249 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788763.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:41,309 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3794689.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:41,309 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3795220.json "HTTP/1.1 200 OK"
+events:  77%|███████▋  | 127/166 [00:07<00:01, 19.69match/s]2026-09-13 19:31:41,392 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3795107.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:41,470 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3795506.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:41,517 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3794692.json "HTTP/1.1 200 OK"
+events:  78%|███████▊  | 130/166 [00:07<00:02, 17.38match/s]2026-09-13 19:31:41,568 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3794686.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:41,576 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788755.json "HTTP/1.1 200 OK"
+events:  80%|████████  | 133/166 [00:07<00:01, 16.99match/s]2026-09-13 19:31:41,753 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788766.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:41,754 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788747.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:41,800 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788754.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:41,953 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788764.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:41,971 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788769.json "HTTP/1.1 200 OK"
+events:  83%|████████▎ | 137/166 [00:07<00:01, 16.17match/s]2026-09-13 19:31:42,071 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788762.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:42,073 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788770.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:42,095 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788741.json "HTTP/1.1 200 OK"
+events:  84%|████████▎ | 139/166 [00:07<00:01, 16.61match/s]2026-09-13 19:31:42,129 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788774.json "HTTP/1.1 200 OK"
+events:  85%|████████▍ | 141/166 [00:08<00:01, 16.95match/s]2026-09-13 19:31:42,239 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788771.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:42,240 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788772.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:42,264 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3795109.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:42,265 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3794688.json "HTTP/1.1 200 OK"
+events:  88%|████████▊ | 146/166 [00:08<00:00, 23.61match/s]2026-09-13 19:31:42,515 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788753.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:42,548 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788745.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:42,580 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788767.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:42,637 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788768.json "HTTP/1.1 200 OK"
+events:  90%|████████▉ | 149/166 [00:08<00:01, 16.84match/s]2026-09-13 19:31:42,661 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788757.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:42,684 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3794691.json "HTTP/1.1 200 OK"
+events:  92%|█████████▏| 152/166 [00:08<00:00, 17.85match/s]2026-09-13 19:31:42,857 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788756.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:42,862 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788759.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:42,874 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788749.json "HTTP/1.1 200 OK"
+events:  93%|█████████▎| 155/166 [00:08<00:00, 17.70match/s]2026-09-13 19:31:43,002 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788746.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:43,104 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788751.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:43,149 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788748.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:43,181 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788752.json "HTTP/1.1 200 OK"
+events:  95%|█████████▌| 158/166 [00:08<00:00, 16.01match/s]2026-09-13 19:31:43,262 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788776.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:43,284 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3795221.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:43,286 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788775.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:43,305 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788750.json "HTTP/1.1 200 OK"
+events:  97%|█████████▋| 161/166 [00:09<00:00, 17.57match/s]2026-09-13 19:31:43,525 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788742.json "HTTP/1.1 200 OK"
+2026-09-13 19:31:43,552 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788743.json "HTTP/1.1 200 OK"
+events:  99%|█████████▉| 164/166 [00:09<00:00, 15.12match/s]2026-09-13 19:31:43,847 INFO httpx: HTTP Request: GET https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/3788744.json "HTTP/1.1 200 OK"
+events: 100%|██████████| 166/166 [00:09<00:00, 11.82match/s]events: 100%|██████████| 166/166 [00:09<00:00, 17.15match/s]
+exit 0
