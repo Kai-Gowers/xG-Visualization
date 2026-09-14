@@ -239,7 +239,13 @@ def extract_match(
         if pid is not None and key:
             feet[pid]["player_name"] = player.get("name")
             feet[pid]["counts"][key] += 1
-        if kind == "Shot" and ev.get("location") and (ev.get("shot") or {}).get("outcome"):
+        # Period 5 is a penalty shoot-out: not in-game shots, so they are not xG material.
+        if (
+            kind == "Shot"
+            and ev.get("period") != 5
+            and ev.get("location")
+            and (ev.get("shot") or {}).get("outcome")
+        ):
             shots.append(_shot_row(ev, match_id, meta))
     return shots, dict(feet)
 

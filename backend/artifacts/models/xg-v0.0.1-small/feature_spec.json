@@ -1,0 +1,149 @@
+{
+ "units": "statsbomb_yards_120x80",
+ "features": [
+  "distance_to_goal",
+  "angle_to_goal",
+  "abs_lateral_offset",
+  "shooter_x",
+  "n_defenders_in_cone",
+  "n_defenders_within_3",
+  "closest_defender_distance",
+  "closest_defender_in_cone_distance",
+  "defenders_covered_fraction",
+  "n_teammates_in_cone",
+  "gk_present",
+  "gk_distance_to_shooter",
+  "gk_depth",
+  "gk_lateral_offset_toward_shooter",
+  "gk_in_cone",
+  "gk_covered_fraction",
+  "goal_open_fraction",
+  "body_part_Right Foot",
+  "body_part_Left Foot",
+  "body_part_Head",
+  "body_part_Other",
+  "technique_Normal",
+  "technique_Volley",
+  "technique_Half Volley",
+  "technique_Lob",
+  "technique_Backheel",
+  "technique_Overhead Kick",
+  "technique_Diving Header",
+  "shot_type_Open Play",
+  "shot_type_Free Kick",
+  "shot_type_Corner",
+  "play_pattern_Regular Play",
+  "play_pattern_From Corner",
+  "play_pattern_From Free Kick",
+  "play_pattern_From Throw In",
+  "play_pattern_From Counter",
+  "play_pattern_Other",
+  "first_time",
+  "under_pressure",
+  "one_on_one",
+  "open_goal",
+  "weak_foot",
+  "preferred_foot_known"
+ ],
+ "groups": {
+  "body_part": [
+   "body_part_Right Foot",
+   "body_part_Left Foot",
+   "body_part_Head",
+   "body_part_Other"
+  ],
+  "technique": [
+   "technique_Normal",
+   "technique_Volley",
+   "technique_Half Volley",
+   "technique_Lob",
+   "technique_Backheel",
+   "technique_Overhead Kick",
+   "technique_Diving Header"
+  ],
+  "shot_type": [
+   "shot_type_Open Play",
+   "shot_type_Free Kick",
+   "shot_type_Corner"
+  ],
+  "play_pattern": [
+   "play_pattern_Regular Play",
+   "play_pattern_From Corner",
+   "play_pattern_From Free Kick",
+   "play_pattern_From Throw In",
+   "play_pattern_From Counter",
+   "play_pattern_Other"
+  ]
+ },
+ "vocab": {
+  "body_part": [
+   "Right Foot",
+   "Left Foot",
+   "Head",
+   "Other"
+  ],
+  "technique": [
+   "Normal",
+   "Volley",
+   "Half Volley",
+   "Lob",
+   "Backheel",
+   "Overhead Kick",
+   "Diving Header"
+  ],
+  "shot_type": [
+   "Open Play",
+   "Free Kick",
+   "Corner"
+  ],
+  "play_pattern": [
+   "Regular Play",
+   "From Corner",
+   "From Free Kick",
+   "From Throw In",
+   "From Counter",
+   "Other"
+  ],
+  "preferred_foot": [
+   "Right",
+   "Left",
+   "Unknown"
+  ]
+ },
+ "constants": {
+  "gk_impute": [
+   118.0,
+   40.0
+  ],
+  "defender_radius": 0.4375,
+  "gk_radius": 0.875,
+  "pressure_radius": 3.0,
+  "dist_cap": 30.0,
+  "x_clamp_max": 119.5
+ },
+ "model_version": "0.0.1-small",
+ "created_at": "2026-09-14T02:36:46+00:00",
+ "library": "xgboost",
+ "library_version": "3.4.1",
+ "penalty_xg": 0.6299212598425197,
+ "monotone_constraints": {
+  "distance_to_goal": -1,
+  "angle_to_goal": 1,
+  "goal_open_fraction": 1,
+  "n_defenders_in_cone": -1,
+  "defenders_covered_fraction": -1
+ },
+ "n_rounds": 143,
+ "training_data": {
+  "open_data_commit": "4b73468fc5b0f1950f9f66fada70ad3a4f9327cb",
+  "n_train_shots": 3371,
+  "n_test_shots": 597,
+  "n_train_matches": 140,
+  "n_test_matches": 26,
+  "n_competition_seasons": 3,
+  "excluded": [
+   "Penalty",
+   "no_freeze_frame"
+  ]
+ }
+}
