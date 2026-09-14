@@ -4,68 +4,79 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-An interactive tool for building intuition about Expected Goals (xG) in soccer. A user drags a striker and defenders around a pitch in a React UI, and a FastAPI backend runs a pre-trained scikit-learn Random Forest (`backend/app/xg_modelv2.pkl`) to return the shot's xG. The model was trained in `xG_ModelV2.ipynb` on StatsBomb open data (Euro 2024 events + 360 freeze frames).
+An intuition-building tool for Expected Goals (xG) in soccer. The frontend shows a frozen 3D moment from behind the shooter (a rigged mannequin posed for the body part and technique), a minimap where defenders, teammates, the keeper and the shooter can be dragged, a live xG readout with a SHAP-style "why" waterfall, and a library of ~100k real StatsBomb shots that can be loaded and edited as counterfactuals. The backend owns the model (XGBoost trained on all StatsBomb open data) and the API contract.
 
-There is no root-level build tooling: `frontend/` and `backend/` are run independently in two terminals.
+Two processes, two terminals: `backend/` (FastAPI on :8000) and `frontend/` (Vite on :5173). `notebooks/legacy_xG_ModelV2.ipynb` is the original Colab notebook, kept for history only.
 
 ## Commands
 
-### Backend (FastAPI, Python 3.13)
-
-Run from `backend/` — the model path in `main.py` is relative (`app/xg_modelv2.pkl`), so the cwd matters.
+### Backend (`cd backend`, Python 3.13, managed by `uv`)
 
 ```bash
-cd backend
-python3 -m venv venv && source venv/bin/activate   # first time; venv/ is gitignored
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
+brew install libomp && make install     # first time (xgboost needs OpenMP)
+make test                               # pytest; fixtures build a synthetic model, no data needed
+make lint                               # ruff check + format --check
+make serve                              # uvicorn xg.api.app:app --reload --port 8000
+uv run pytest tests/test_features.py -k mirror      # single test
 ```
 
-There are no backend tests or linters configured.
-
-### Frontend (Create React App, React 19)
+Data and model (all gitignored under `data/`; artifacts committed under `artifacts/`):
 
 ```bash
-cd frontend
+make data-small        # Euro 2024 + WC 2022 + Euro 2020 (1 min) — or `make data` for everything (~1.1 GB gz, 3–5 min)
+make features && make train TRIALS=40 && make evaluate     # retrain: writes artifacts/models/xg-v<VERSION>/ and repoints `current`
+make library           # data/library/full (14 MB, gitignored); make library-starter refreshes the committed starter
+```
+
+`xg-pipeline <step>` (`uv run`) is the CLI behind the Makefile. Never run two `uv run` commands concurrently in the same venv: `uv` may re-sync and drop the editable install mid-run (symptom: `No module named 'xg'`; fix: `uv sync --all-groups --reinstall-package xg-backend`).
+
+### Frontend (`cd frontend`, Node ≥ 22, npm)
+
+```bash
 npm install
-npm start          # dev server on http://localhost:3000
-npm test           # Jest in watch mode via react-scripts
-npm test -- --watchAll=false App.test.js   # single test file, one run
-npm run build
+npm run assets:build   # once: fetches the Mixamo-rigged Xbot from three.js, compresses to public/models/player.glb (gitignored)
+npm run dev            # http://localhost:5173 (expects the backend on :8000; VITE_API_URL in .env.development)
+npm run typecheck && npm run lint && npm test && npm run build
+npx vitest run src/domain/poses        # single test file/dir
+npm run test:e2e                       # Playwright, capsule mode, all backend routes mocked
+npm run api:types                      # regenerate src/api/schema.d.ts from the running backend's /openapi.json
 ```
 
-Note: `src/App.test.js` is the untouched CRA boilerplate ("renders learn react link") and does not pass against the current `App.js`.
+Regenerating `package-lock.json` needs npm ≥ 11 (`npx npm@11 install`); plain `npm install`/`npm ci` work with npm 10. Pins that matter: `react@19.2.x` (R3F 9.7 peer range is `<19.3`), `typescript@5.9` (typescript-eslint does not support TS 7), `vitest@4.1`.
 
 ## Architecture
 
-### Coordinate system (the key cross-cutting concern)
+### Coordinates: StatsBomb units everywhere
 
-Everything hinges on one convention: **StatsBomb pitch coordinates (120 x 80, attacking left-to-right toward goal at x=120, goal mouth y=36..44) scaled 10x** to a 1200x800 pixel pitch.
+All app state, API payloads, parquet files and features use StatsBomb pitch units: 120 long × 80 wide, attacking toward x = 120, goal centre (120, 40), posts at y = 36 and 44. The frontend converts to metres only for rendering, in one place: `frontend/src/domain/pitch.ts` (`sbToWorld`: world origin at the goal centre on the goal line, y up, shooter side negative x, SB y → world z). The minimap is an SVG whose viewBox is in SB units, and `pitchLinePaths()` feeds both the minimap and the 3D pitch texture so the two views cannot disagree. Pixels never reach the backend.
 
-- **Notebook** engineers features in raw StatsBomb units (goal at (120, 40), posts at y=36 and y=44).
-- **Frontend** (`App.js` / `App.css`) renders a `.pitch` div of 1200x800px and stores player positions as raw pixel offsets. The goalkeeper is fixed at (1180, 400) and not sent to the backend.
-- **Backend** (`main.py`) recomputes the same features in pixel space (goal at (1200, 400), posts at y=360/440), then **divides distances by 10** to get back to StatsBomb units before calling the model. Angles and counts are unit-free and are not scaled. The backend also hard-codes the goalkeeper at (1180, 400) and appends it to the defender list before computing features.
+### The backend owns the contract
 
-If you change the pitch size, goal position, or scale in any one of these three places, the other two must change to match or predictions silently degrade.
+`backend/xg/scenario.py` `Scenario` is the canonical shot description (shooter, keeper|None, defenders, teammates, body part, technique, shot type, phase of play, flags, preferred foot). `PredictRequest` in `xg/api/schemas.py` mirrors it 1:1, and the frontend's types are generated from `/openapi.json` (`src/api/schema.d.ts`; `src/api/types.ts` narrows them with `satisfies`), so a contract change fails `npm run typecheck`.
 
-### Model feature contract
+Real shots and dragged scenarios go through the same code: `from_statsbomb_shot` (pipeline) and `from_shot_row` (library endpoint) both build a `Scenario`, and `xg/features.py` `compute_features` is the only feature implementation, used by training and serving. Do not re-implement any geometry client-side: `/predict` returns a `geometry` block (cone, per-player in-cone flags and goal-line shadow intervals, covered/free goal intervals, imputed keeper) that the 3D overlays draw directly.
 
-The pickled model expects a fixed 17-column feature vector, in this exact order:
+### Model
 
-1. `distance_to_goal`, `angle_to_goal`, `num_defenders_in_path`, `closest_defender_distance`
-2. One-hot `shot_body_part_*` (Head, Left Foot, Other, Right Foot, nan) — from `pd.get_dummies(..., dummy_na=True)`
-3. One-hot `shot_type_*` (Backheel, Diving Header, Half Volley, Lob, Normal, Overhead Kick, Volley, nan)
+41 features (`FEATURE_NAMES` in `features.py`; order is the booster's column order and is asserted on load): distance and visible angle, defenders in the shooter–posts triangle, closest defender, goal-mouth shadow from defenders (80 cm span) and keeper (160 cm) projected onto the goal line, keeper depth and lateral offset (sign made mirror-invariant), one-hots for body part / technique / shot type / phase of play, flags, and `weak_foot` (body part ≠ the player's dominant foot, inferred in `pipeline/players.py` from their passes and shots). Everything is NaN-free: a missing keeper is imputed at (118, 40) and flagged.
 
-`main.py` builds this as a dict and relies on insertion order when calling `list(features.values())`. The API currently hard-codes body part = Right Foot and shot type = Normal; the frontend does not expose these. If the notebook is retrained with different categories, the dict in `main.py` must be updated to match the new column order.
+XGBoost `binary:logistic` with monotone constraints, tuned by Optuna under match-grouped CV, 15 % of matches held out within each competition-season. Penalties are a fixed rule (`penalty_xg` in `feature_spec.json`); shoot-outs (period 5) are dropped at extraction. Explanations are native `pred_contribs` in log-odds; one-hot groups are summed into one row (`groups` in the spec). Platt calibration is fitted but only kept if it improves test Brier (it did not for v3.0.0). Held-out v3.0.0: log loss 0.2635 / Brier 0.0755 / AUROC 0.809 vs StatsBomb's own xG on the same shots 0.2658 / 0.0753 / 0.804.
 
-### Request flow
+Artifacts are directories (`model.ubj`, `feature_spec.json`, `calibrator.json`, `metrics.json`, `training_config.json`, `plots/`) — no pickles. `artifacts/models/current` is a symlink the API serves. Adding or reordering a feature means retraining; `load_artifact` refuses a mismatched spec.
 
-`App.js` `handlePredict` → `POST http://localhost:8000/predict` with `{striker: {x, y}, defenders: [{x, y}, ...]}` → `main.py` `predict` → `{"xg": float}`. The frontend URL and the backend CORS origin (`http://localhost:3000`) are both hard-coded.
+### Serving
 
-### Duplication to be aware of
+`xg/api/app.py` loads the predictor and a `LibraryStore` (DuckDB views over the library parquet files: full library if `data/library/full` exists, else the committed `artifacts/library/starter`). Endpoints: `POST /predict?explain=`, `POST /predict/batch`, `GET /model/info`, `GET /health`, `GET /library/competitions|matches|matches/{id}/shots|shots/{id}|shots/search`. Predictions with explanations take ~1 ms. Config via `XG_MODEL_DIR`, `XG_LIBRARY_DIR`, `XG_CORS_ORIGINS`.
 
-`backend/app/utils.py` contains the same four feature functions that are also defined inline inside `predict()` in `main.py`. `main.py` does not import `utils.py`; the inline copies are what actually run.
+### Frontend structure
 
-### Notebook
+- `store/` zustand slices: `scenario` (with a `revision` counter bumped on every edit), `ui` (camera preset, overlays, hovered feature, `assetsMode`), `prediction` (last result + the revision it belongs to; staleness is derived), `library` (loaded shot, real scenario/prediction for reset).
+- `hooks/useLivePrediction.ts` subscribes to `revision`: 80 ms trailing debounce while dragging, immediate otherwise, aborts in-flight requests, ignores stale responses. Always requests `explain=true`.
+- `minimap/` is the primary editor (pointer capture, rAF-gated moves, Delete/arrow keys). `scene/` is a demand-rendered R3F canvas; the dragged entity, ball and camera are updated imperatively via `useStore.subscribe`, not React re-renders.
+- `scene/characters/`: `PosedCharacter` clones the skinned mannequin with `SkeletonUtils.clone`, resets bones to rest and applies the pose from `domain/poses/manifest.ts` (bone rotations per body part × technique, mirrored for left foot; `rootTilt`/`root` for airborne poses; `ball` offset drives `scene/placement.ts`). Missing `player.glb` or a load error drops to `CapsuleCharacter` via `RiggedBoundary`; `?capsules=1` forces it (Playwright uses this).
+- `scene/overlays/` read only `prediction.result.geometry/features`. `domain/waterfall.ts` is the pure math for the explanation chart; `domain/features.ts` maps backend feature keys to labels/units.
+- `panels/library/` uses TanStack Query over the `/library/*` endpoints; `?shot=<id>` deep-links a shot.
 
-`xG_ModelV2.ipynb` was authored in Google Colab (the last cell uses `google.colab.files`). It downloads StatsBomb data into `events/` and `three_sixty/`, writes `euro_2024_shots.csv`, trains a `RandomForestClassifier(n_estimators=100, max_depth=5, random_state=42)`, and dumps the pickle. None of those data artifacts are in the repo. The pickle was produced with scikit-learn 1.6.1 (pinned in `requirements.txt`); loading it under a different major version may warn or fail.
+### Assets and licensing
+
+`frontend/public/models/player.glb` is built from three.js's Xbot (Adobe Mixamo's default character): royalty-free to embed, not to redistribute standalone, hence gitignored. See `frontend/tools/assets/README.md` for the bone-axis conventions used when authoring poses. StatsBomb open data requires attribution with their logo when publishing anything derived from it (`backend/README.md`).
