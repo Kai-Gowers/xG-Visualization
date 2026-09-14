@@ -1,10 +1,10 @@
 import type {
   BodyPart,
-  LibraryShotDetail,
   PlayPattern,
   Point,
   PredictRequest,
   PreferredFoot,
+  ShotDetail,
   ShotType,
   Technique,
 } from '../api/types';
@@ -47,6 +47,18 @@ export function refFromId(id: string): EntityRef {
   return { kind: id.startsWith('d') ? 'defender' : 'teammate', id };
 }
 
+export const DEFAULT_ATTRS: ShotAttrs = {
+  body_part: 'Right Foot',
+  technique: 'Normal',
+  shot_type: 'Open Play',
+  play_pattern: 'Regular Play',
+  first_time: false,
+  under_pressure: false,
+  one_on_one: false,
+  open_goal: false,
+  preferred_foot: 'Right',
+};
+
 export function defaultScenario(): Scenario {
   return {
     shooter: { x: 108, y: 40 },
@@ -56,17 +68,7 @@ export function defaultScenario(): Scenario {
       { id: 'd1', x: 115, y: 43 },
     ],
     teammates: [],
-    attrs: {
-      body_part: 'Right Foot',
-      technique: 'Normal',
-      shot_type: 'Open Play',
-      play_pattern: 'Regular Play',
-      first_time: false,
-      under_pressure: false,
-      one_on_one: false,
-      open_goal: false,
-      preferred_foot: 'Right',
-    },
+    attrs: { ...DEFAULT_ATTRS },
   };
 }
 
@@ -171,14 +173,19 @@ export function toPredictBody(s: Scenario): PredictRequest {
   };
 }
 
+/** Same shot as far as the backend is concerned (ids and object identity ignored). */
+export function scenarioEquals(a: Scenario, b: Scenario): boolean {
+  return a === b || JSON.stringify(toPredictBody(a)) === JSON.stringify(toPredictBody(b));
+}
+
 /** Library shot → editable scenario with stable ids d0..dn / t0..tn. */
-export function fromShotDetail(detail: LibraryShotDetail): Scenario {
-  const { shooter, goalkeeper, defenders, teammates, ...attrs } = detail.scenario;
+export function fromShotDetail(detail: ShotDetail): Scenario {
+  const { shooter, goalkeeper = null, defenders = [], teammates = [], ...attrs } = detail.scenario;
   return {
-    shooter,
-    goalkeeper,
-    defenders: defenders.map((p, i) => ({ id: `d${i}`, ...p })),
-    teammates: teammates.map((p, i) => ({ id: `t${i}`, ...p })),
+    shooter: { x: shooter.x, y: shooter.y },
+    goalkeeper: goalkeeper && { x: goalkeeper.x, y: goalkeeper.y },
+    defenders: defenders.map((p, i) => ({ id: `d${i}`, x: p.x, y: p.y })),
+    teammates: teammates.map((p, i) => ({ id: `t${i}`, x: p.x, y: p.y })),
     attrs,
   };
 }

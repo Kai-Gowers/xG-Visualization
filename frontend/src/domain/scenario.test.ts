@@ -1,14 +1,16 @@
 import { describe, expect, it } from 'vitest';
-import { predictResponse } from '../test/fixtures';
+import { shotDetail } from '../test/fixtures';
 import {
   addDefender,
   addTeammate,
+  DEFAULT_ATTRS,
   defaultScenario,
   fromShotDetail,
   GK_REF,
   movePlayer,
   refFromId,
   removeEntity,
+  scenarioEquals,
   setAttr,
   setGoalkeeper,
   SHOOTER_REF,
@@ -70,21 +72,33 @@ describe('scenario reducers', () => {
 
   it('rebuilds a scenario from a library shot with d0../t0.. ids', () => {
     const body = toPredictBody(addTeammate(defaultScenario()));
-    const s = fromShotDetail({
-      id: 'shot',
-      scenario: body,
-      prediction: predictResponse(0.2),
-      statsbomb_xg: 0.3,
-      outcome: 'Goal',
-      player: 'A',
-      team: 'B',
-      minute: 10,
-      end_location: null,
-    });
+    const s = fromShotDetail(shotDetail(body));
     expect(s.defenders.map((d) => d.id)).toEqual(['d0', 'd1']);
     expect(s.teammates.map((t) => t.id)).toEqual(['t0']);
     expect(s.attrs).toEqual(defaultScenario().attrs);
     expect(toPredictBody(s)).toEqual(body);
+  });
+
+  it('fills the player lists the API body may omit', () => {
+    const s = fromShotDetail(
+      shotDetail({
+        ...DEFAULT_ATTRS,
+        shooter: { x: 110, y: 42 },
+        defenders: [{ x: 115, y: 40 }],
+        body_part: 'Head',
+      }),
+    );
+    expect(s.goalkeeper).toBeNull();
+    expect(s.teammates).toEqual([]);
+    expect(s.defenders).toEqual([{ id: 'd0', x: 115, y: 40 }]);
+    expect(s.attrs).toEqual({ ...DEFAULT_ATTRS, body_part: 'Head' });
+  });
+
+  it('compares scenarios by what the backend would see', () => {
+    const a = defaultScenario();
+    expect(scenarioEquals(a, defaultScenario())).toBe(true);
+    expect(scenarioEquals(a, movePlayer(a, SHOOTER_REF, { x: 100, y: 40 }))).toBe(false);
+    expect(scenarioEquals(a, setAttr(a, 'first_time', true))).toBe(false);
   });
 
   it('derives the entity kind from its id', () => {

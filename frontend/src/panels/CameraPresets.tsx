@@ -3,8 +3,9 @@ import type { CameraPreset } from '../store/uiSlice';
 
 const PRESETS: [CameraPreset, string][] = [
   ['behindShooter', '1 Behind shooter'],
-  ['broadcast', '2 Broadcast'],
-  ['topDown', '3 Top down'],
+  ['gk', '2 Keeper'],
+  ['broadcast', '3 Broadcast'],
+  ['topDown', '4 Top down'],
 ];
 
 export function CameraPresets() {

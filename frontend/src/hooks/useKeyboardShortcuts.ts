@@ -14,7 +14,7 @@ const ARROWS: Record<string, [number, number]> = {
 const isEditable = (t: EventTarget | null) =>
   t instanceof HTMLElement && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName));
 
-/** Delete/Backspace removes the selection, arrows nudge it 0.5 units, 1–3 pick camera presets. */
+/** Delete/Backspace removes the selection, arrows nudge it 0.5 units, 1–4 pick camera presets. */
 export function useKeyboardShortcuts() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {

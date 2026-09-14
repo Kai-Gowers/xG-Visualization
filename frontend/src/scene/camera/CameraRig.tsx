@@ -10,18 +10,19 @@ export function CameraRig() {
   const controls = useRef<ComponentRef<typeof CameraControls>>(null);
   const preset = useStore((s) => s.ui.cameraPreset);
   const shooter = useStore((s) => s.scenario.shooter);
+  const goalkeeper = useStore((s) => s.scenario.goalkeeper);
   const bodyPart = useStore((s) => s.scenario.attrs.body_part);
   const initialised = useRef(false);
 
   useEffect(() => {
     const c = controls.current;
     if (!c) return;
-    const { position, target, limits } = cameraPose(preset, shooter, bodyPart);
+    const { position, target, limits } = cameraPose(preset, { shooter, goalkeeper, bodyPart });
     c.normalizeRotations();
     Object.assign(c, limits);
     void c.setLookAt(...position, ...target, initialised.current);
     initialised.current = true;
-  }, [preset, shooter, bodyPart]);
+  }, [preset, shooter, goalkeeper, bodyPart]);
 
   return <CameraControls ref={controls} makeDefault smoothTime={SMOOTH_TIME} />;
 }

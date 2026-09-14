@@ -1,4 +1,4 @@
-import { allEntities, entityPosition, type EntityRef } from '../domain/scenario';
+import { allEntities, entityPosition, scenarioEquals, type EntityRef } from '../domain/scenario';
 import type { AppState } from './types';
 
 export const selectEntities = (s: AppState) => allEntities(s.scenario);
@@ -26,3 +26,9 @@ export const selectInConeIds = (s: AppState): string[] => {
 export const selectIsStale = (s: AppState) => s.prediction.forRevision !== s.revision;
 
 export const selectIsWeakFoot = (s: AppState) => s.prediction.result?.features.weak_foot === 1;
+
+/** A library shot is loaded and the scenario no longer matches its real positions/attributes. */
+export const selectIsModified = (s: AppState) => {
+  const loaded = s.library.loadedShot;
+  return loaded !== null && !scenarioEquals(s.scenario, loaded.realScenario);
+};

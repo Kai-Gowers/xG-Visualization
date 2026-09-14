@@ -2,8 +2,10 @@ import type { StateCreator } from 'zustand';
 import type { EntityRef } from '../domain/scenario';
 import type { AppState, Middleware } from './types';
 
-export type CameraPreset = 'behindShooter' | 'broadcast' | 'topDown';
-export const CAMERA_PRESETS: CameraPreset[] = ['behindShooter', 'broadcast', 'topDown'];
+export type CameraPreset = 'behindShooter' | 'gk' | 'broadcast' | 'topDown';
+/** Order = keyboard shortcuts 1–4. */
+export const CAMERA_PRESETS: CameraPreset[] = ['behindShooter', 'gk', 'broadcast', 'topDown'];
+export type SideTab = 'shot' | 'why' | 'library';
 export type MinimapZoom = 'full' | 'finalThird';
 export type AssetsMode = 'rigged' | 'capsule';
 export type OverlayKey =
@@ -18,6 +20,7 @@ export type UiSlice = {
     hoveredFeature: string | null;
     minimapZoom: MinimapZoom;
     assetsMode: AssetsMode;
+    sideTab: SideTab;
   };
   setSelected: (ref: EntityRef | null) => void;
   setDragging: (dragging: boolean) => void;
@@ -26,6 +29,7 @@ export type UiSlice = {
   setHoveredFeature: (feature: string | null) => void;
   setMinimapZoom: (zoom: MinimapZoom) => void;
   setAssetsMode: (mode: AssetsMode) => void;
+  setSideTab: (tab: SideTab) => void;
 };
 
 export const createUiSlice: StateCreator<AppState, Middleware, [], UiSlice> = (set) => {
@@ -46,6 +50,7 @@ export const createUiSlice: StateCreator<AppState, Middleware, [], UiSlice> = (s
       hoveredFeature: null,
       minimapZoom: 'finalThird',
       assetsMode: 'capsule',
+      sideTab: 'shot',
     },
     setSelected: (selected) => patch({ selected }),
     setDragging: (dragging) => patch({ dragging }),
@@ -57,5 +62,6 @@ export const createUiSlice: StateCreator<AppState, Middleware, [], UiSlice> = (s
     setHoveredFeature: (hoveredFeature) => patch({ hoveredFeature }),
     setMinimapZoom: (minimapZoom) => patch({ minimapZoom }),
     setAssetsMode: (assetsMode) => patch({ assetsMode }),
+    setSideTab: (sideTab) => patch({ sideTab }),
   };
 };
