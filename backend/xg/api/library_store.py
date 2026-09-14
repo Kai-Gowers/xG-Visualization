@@ -48,9 +48,8 @@ class LibraryStore:
             ("competitions", COMPETITIONS_FILE),
             ("players", PLAYERS_FILE),
         ):
-            self.con.execute(
-                f"CREATE VIEW {view} AS SELECT * FROM read_parquet('{(self.path / file).as_posix()}')"
-            )
+            parquet = (self.path / file).as_posix()
+            self.con.execute(f"CREATE VIEW {view} AS SELECT * FROM read_parquet('{parquet}')")
         self.n_shots, self.n_matches, self.n_competitions = self.con.execute(
             "SELECT (SELECT COUNT(*) FROM shots), (SELECT COUNT(*) FROM matches), "
             "(SELECT COUNT(*) FROM competitions)"
@@ -90,7 +89,8 @@ class LibraryStore:
             names = {
                 pid: name
                 for pid, name in self.con.execute(
-                    f"SELECT player_id, player_name FROM players WHERE player_id IN ({placeholders})",
+                    "SELECT player_id, player_name FROM players "
+                    f"WHERE player_id IN ({placeholders})",
                     ids,
                 ).fetchall()
             }
