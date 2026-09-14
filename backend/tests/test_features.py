@@ -11,7 +11,7 @@ PEN = Scenario(shooter=Point(108, 40), goalkeeper=Point(118, 40), preferred_foot
 
 def test_vector_matches_spec_order_and_length():
     res = compute_features(PEN)
-    assert len(FEATURE_NAMES) == 43
+    assert len(FEATURE_NAMES) == 41
     assert len(res.vector) == len(FEATURE_NAMES)
     assert res.vector == [res.values[n] for n in FEATURE_NAMES]
     assert set(feature_spec_base()["features"]) == set(res.values)

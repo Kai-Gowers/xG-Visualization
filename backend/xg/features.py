@@ -44,8 +44,6 @@ from xg.scenario import Scenario
 NUMERIC_FEATURES: tuple[str, ...] = (
     "distance_to_goal",
     "angle_to_goal",
-    "abs_lateral_offset",
-    "shooter_x",
     "n_defenders_in_cone",
     "n_defenders_within_3",
     "closest_defender_distance",
@@ -180,8 +178,6 @@ def compute_features(sc: Scenario) -> FeatureResult:
     values: dict[str, float] = {
         "distance_to_goal": distance(shooter, GOAL_CENTRE),
         "angle_to_goal": visible_goal_angle(shooter),
-        "abs_lateral_offset": abs(sy - GOAL_CENTRE_Y),
-        "shooter_x": sx,
         "n_defenders_in_cone": float(n_in_cone),
         "n_defenders_within_3": float(n_within),
         "closest_defender_distance": _cap(closest),

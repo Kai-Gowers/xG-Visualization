@@ -21,7 +21,7 @@ def test_health_and_info(client):
     h = client.get("/health").json()
     assert h == {"status": "ok", "model_version": "test", "library_loaded": True}
     info = client.get("/model/info").json()
-    assert len(info["features"]) == 43
+    assert len(info["features"]) == 41
     assert info["vocab"]["body_part"] == ["Right Foot", "Left Foot", "Head", "Other"]
     assert info["penalty_xg"] == pytest.approx(0.78)
     assert info["shot_library"]["n_shots"] == 24
