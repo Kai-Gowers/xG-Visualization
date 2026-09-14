@@ -3,7 +3,7 @@
 // system needs. Run via `npm run assets:check`.
 import { statSync } from 'node:fs';
 import { NodeIO } from '@gltf-transform/core';
-import { KHRONOS_EXTENSIONS } from '@gltf-transform/extensions';
+import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
 import { MeshoptDecoder } from 'meshoptimizer';
 
 const file = new URL('../../public/models/player.glb', import.meta.url).pathname;
@@ -28,7 +28,7 @@ if (size > BUDGET_BYTES) {
   process.exit(1);
 }
 
-const io = new NodeIO().registerExtensions(KHRONOS_EXTENSIONS).registerDependencies({ 'meshopt.decoder': MeshoptDecoder });
+const io = new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({ 'meshopt.decoder': MeshoptDecoder });
 const doc = await io.read(file);
 const joints = new Set(doc.getRoot().listSkins().flatMap((s) => s.listJoints().map((j) => j.getName().replace(/^mixamorig:?/, ''))));
 const missing = REQUIRED.filter((b) => !joints.has(b));

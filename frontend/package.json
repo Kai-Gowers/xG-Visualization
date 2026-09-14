@@ -13,7 +13,9 @@
     "api:types": "openapi-typescript ${VITE_API_URL:-http://localhost:8000}/openapi.json -o src/api/schema.d.ts",
     "lint": "eslint .",
     "typecheck": "tsc -b --noEmit",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "assets:build": "bash tools/assets/build.sh",
+    "assets:check": "node tools/assets/check.mjs"
   },
   "dependencies": {
     "@react-three/drei": "10.7.8",
@@ -27,6 +29,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^10",
+    "@gltf-transform/core": "^4.5.0",
+    "@gltf-transform/extensions": "^4.5.0",
     "@playwright/test": "^1.63",
     "@testing-library/jest-dom": "^6",
     "@testing-library/react": "^16",

@@ -49,7 +49,7 @@ export const createUiSlice: StateCreator<AppState, Middleware, [], UiSlice> = (s
       },
       hoveredFeature: null,
       minimapZoom: 'finalThird',
-      assetsMode: 'capsule',
+      assetsMode: 'rigged',
       sideTab: 'shot',
     },
     setSelected: (selected) => patch({ selected }),

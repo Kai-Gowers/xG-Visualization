@@ -39,12 +39,9 @@ about the left–right axis for overhead kicks and diving headers), `root` (worl
 airborne body is at the right height), and `ball` (`[forward, up, right]` metres from the
 shooter's feet).
 
-## Optional: Mixamo motion clips
+## Upgrading to motion-capture poses
 
-If you download soccer clips from mixamo.com (FBX, "Without Skin", Mirror ticked for left-foot
-variants), `blender_build.py` converts them into `public/models/poses.glb`; the pose manifest
-can then reference `{ clip, time }` instead of bone rotations. Requires Blender 4+:
-
-```bash
-/Applications/Blender.app/Contents/MacOS/Blender -b -P tools/assets/blender_build.py -- tools/assets/raw/clips public/models/poses.glb
-```
+The pose system applies bone rotations to the standard `mixamorig` skeleton, so soccer clips
+from mixamo.com (FBX, "Without Skin") can later be converted with Blender's glTF exporter and
+frozen at a chosen frame instead of hand-authored rotations. Mixamo has no download API, so
+that step is manual; the built model is already Mixamo-rigged for it.
