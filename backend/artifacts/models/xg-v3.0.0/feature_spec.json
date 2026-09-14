@@ -121,11 +121,11 @@
   "dist_cap": 30.0,
   "x_clamp_max": 119.5
  },
- "model_version": "0.0.1-small",
- "created_at": "2026-09-14T02:36:46+00:00",
+ "model_version": "3.0.0",
+ "created_at": "2026-09-14T02:46:31+00:00",
  "library": "xgboost",
  "library_version": "3.4.1",
- "penalty_xg": 0.6299212598425197,
+ "penalty_xg": 0.7618025751072961,
  "monotone_constraints": {
   "distance_to_goal": -1,
   "angle_to_goal": 1,
@@ -133,14 +133,14 @@
   "n_defenders_in_cone": -1,
   "defenders_covered_fraction": -1
  },
- "n_rounds": 143,
+ "n_rounds": 1607,
  "training_data": {
   "open_data_commit": "4b73468fc5b0f1950f9f66fada70ad3a4f9327cb",
-  "n_train_shots": 3371,
-  "n_test_shots": 597,
-  "n_train_matches": 140,
-  "n_test_matches": 26,
-  "n_competition_seasons": 3,
+  "n_train_shots": 84477,
+  "n_test_shots": 15269,
+  "n_train_matches": 3350,
+  "n_test_matches": 611,
+  "n_competition_seasons": 80,
   "excluded": [
    "Penalty",
    "no_freeze_frame"
