@@ -123,11 +123,13 @@ const BACKHEEL: PoseSpec = {
   },
 };
 
+/** Back to goal, tipped over backwards so the head ends up goal-side and the leg hooks the ball over it. */
 const OVERHEAD: PoseSpec = {
   label: 'Right-footed overhead kick',
-  root: [0.95, 1.2, 0],
+  rootRotate: 180,
+  root: [-0.95, 1.2, 0],
   rootTilt: 100,
-  ball: [-0.1, 1.85, 0.15],
+  ball: [0.25, 1.9, -0.15],
   bones: {
     Spine: [-10, 0, 0],
     Head: [-25, 0, 0],

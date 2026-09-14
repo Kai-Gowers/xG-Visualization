@@ -38,6 +38,7 @@ describe('resolveShooterPose', () => {
     expect(volley).toBeLessThan(header);
     expect(resolveShooterPose('Right Foot', 'Backheel').spec.rootRotate).toBe(180);
     expect(resolveShooterPose('Right Foot', 'Overhead Kick').spec.rootTilt).toBeGreaterThan(0);
+    expect(resolveShooterPose('Right Foot', 'Overhead Kick').spec.rootRotate).toBe(180);
     expect(resolveShooterPose('Head', 'Diving Header').spec.rootTilt).toBeLessThan(0);
   });
 });
